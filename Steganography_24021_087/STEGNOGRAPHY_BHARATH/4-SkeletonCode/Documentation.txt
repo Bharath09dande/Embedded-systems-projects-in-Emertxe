@@ -1,0 +1,102 @@
+                        Steganography Project Documentation
+
+Name : Bharath Dande
+Date : 17-11-2024
+Project : Steganography Using Least Significant Bit (LSB) Encoding and Decoding
+
+1. Introduction
+    This project implements LSB steganography to securely embed secret data within a 
+bitmap (BMP) image file and retrieve it when needed. The project focuses on maintaining 
+the integrity of both the secret data and the image.
+
+2. Objective
+    The main objective of this project is to provide a mechanism for embedding and 
+retrieving secret data in images using LSB steganography. 
+
+3.Encoding process :
+
+Overview : 
+    This program performs data encoding within BMP (Bitmap) image files. It implements 
+steganography, a technique to hide secret data within an image, ensuring the integrity 
+of the image while embedding the secret information.
+
+Functions :
+i. Command-Line Arguments Validation:
+    Identifies whether the operation is encoding (-e) or decoding (-d).
+ii. validate encode args:
+    Validates input file types (BMP for the image and TXT for the secret file).
+iii. File Handling:
+    Opens the source image file, the secret file, and creates the output stego image file.
+    Ensures files are valid and accessible for reading or writing.
+iv. Capacity Check:
+    Determines whether the source BMP image has sufficient capacity to embed the secret data.
+v. Encoding :
+    Copy BMP Header: 
+        Copies the first 54 bytes of the source BMP file (header) directly to 
+        the output file.
+    Magic String Encoding: 
+        Encodes a predefined "magic string" (#*) in the image.
+    File Metadata Encoding:
+        Encodes the size and extension of the secret file.
+    Secret Data Encoding: 
+        Embeds the actual contents of the secret file into the image by modifying the least 
+        significant bits (LSBs) of the image data.
+    Copy Remaining Image Data: 
+        Copies the rest of the image data (after embedding the secret) to the output file.
+    Utility Functions: 
+        Get Image Capacity: 
+        Calculates the embedding capacity of the BMP file based on its width, height, and bytes 
+        per pixel.
+        Get File Size: 
+            Determines the size of the secret file for embedding.
+        Encode Data to Image: 
+            Modifies the LSBs of image data bytes to store secret information.
+                i. Encode byte to lsb : 1 byte(character) encoded into 8 bytes.
+                ii. Encode size to lsb : 4 bytes(integer) encoded into 32 bytes.
+
+4.Decoding process :
+
+Overview :
+    The decoding process extracts hidden data from a steganographic BMP (bitmap) file and saves 
+the retrieved content into a secret file. It operates based on least significant bit (LSB) 
+steganography.
+
+Functions :
+i. Command-Line Arguments Validation:
+    Identifies whether the operation is encoding (-e) or decoding (-d).
+ii. Validate decode args :
+    The program validates the input file to ensure the provided file is a .bmp format.
+    The output file name for the decoded secret data is also validated or assigned a 
+    default name if none is provided.
+iii. Open Files :
+    Open the stego image for reading.
+    Create the output file to store the decoded secret.
+iv. Decoding :
+    Decode Magic String :
+        Skip the BMP file header (54 bytes).
+        Extract a predefined "magic string" using LSB extraction to validate the presence 
+        of hidden data.
+        Compare the extracted magic string with the expected string to confirm the decoding 
+        can proceed.
+    Decoding Secret File Extension :
+        Decode the size of the file extension using 32 bits of LSB data from the stego image.
+        Extract the extension string of the specified size and append it to the output file name.
+    Decoding Secret File Size :
+        The next 32 bits of LSB data to determine the size of the hidden file.
+    Decoding Secret File Data
+        Extract the actual hidden data from the stego image using LSB extraction.
+        Write the retrieved data into the output file .
+    Utility Functions :
+        i. LSB Decoding:
+            LSB of each byte in the image pixel data stores one bit of the hidden data.
+            Combine these bits to reconstruct a single character or piece of data.
+        ii. Size Decoding
+            The size of the file extension and the secret file itself is encoded using 32 
+            bits, which are extracted and combined into an integer value.
+
+5. close all files.
+
+11. Conclusion :
+    This steganography project demonstrates the practical application of LSB encoding and 
+decoding for secure communication. It provides an efficient and user-friendly way to hide 
+and retrieve data without compromising the quality of the carrier image.
