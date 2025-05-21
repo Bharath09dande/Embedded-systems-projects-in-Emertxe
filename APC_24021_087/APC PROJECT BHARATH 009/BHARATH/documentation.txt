@@ -1,0 +1,112 @@
+/////////////////////////Documentation///////////////////////////////
+
+Author: Bharath Dande
+Date: 27-12-2024
+
+Description : 
+
+    This project performs basic arithmetic operations (+, -, x, /) on large 
+numbers that cannot fit into standard data types like int or long int. It 
+uses doubly linked lists to store and process digits of the numbers
+for arithmetic operations. The program reads and validates command-line 
+arguments, handles edge cases like leading zeros, and provides detailed 
+feedback on success or failure of operations.
+
+Functions used in this project:
+
+1.Read_and_validate_CLA 
+    Validates the command-line arguments to ensure correct input format and 
+    structure.
+   Return Value:
+    - `SUCCESS (0)` if the input is valid.  
+    - `FAILURE (-1)` if the input contains non-numeric characters or incorrect 
+    argument count.
+   Logic:
+    - Ensures there are exactly four arguments (`./program num1 operator num2`).  
+    - Checks if the first and third arguments are numeric strings using `isdigit()`.  
+   Usage:
+    Called in `main()` to validate inputs before proceeding with any operations.
+
+2.digit_beginning_zeros
+    Removes leading zeros from two input numeric strings to ensure proper arithmetic 
+    operations.
+   Logic:
+    - Iterates through the string and removes leading zeros by shifting characters 
+    left.  
+    - Stops if the next character is null ('\0') to avoid invalid inputs.
+   Usage:
+    Called in the arithmetic operation.
+
+3.print_list 
+    Prints the contents of a doubly linked list in a human-readable format.
+   Logic:
+    - Traverses the list from the head to the tail, printing each node's data.  
+    - Prints "INFO: List is empty" if the list is `NULL`.
+   Usage:
+    Used to display linked list contents during debugging or to print the result of 
+    operations.
+
+4.Arithmetic Operation Functions
+   - Addition 
+    - Performs addition of two large numbers stored in linked lists.  
+    - Handles carry propagation efficiently.
+
+    Input:
+    ./a.out 123456789 + 987654321
+
+    Output:
+    INFO : Read and validate command line args successfully
+    INFO : Inserted the data successfully
+    123456789 + 987654321 = 1111111110
+    INFO : Addition operation done successfully
+
+   - Subtraction
+    - Subtracts one large number from another.  
+    - Ensures the result in positive/negative.
+
+    Input:
+    ./a.out 98765 - 12345
+
+    Output:
+    INFO : Read and validate command line args successfully
+    INFO : Inserted the data successfully
+    Result: 86420
+    INFO : Subtraction operation done successfully
+
+   - Multiplication
+    - Multiplies two large numbers using digit-by-digit multiplication stored in lists.  
+    - Combines intermediate results into the final list.
+
+    Input:
+    ./a.out 123 * 45
+
+    Output:
+    INFO : Read and validate command line args successfully
+    INFO : Inserted the data successfully
+    Result: 5535
+    INFO : Multiplication operation done successfully
+
+   -Division
+    - Divides one large number by another using repeated subtraction or digit extraction.  
+    - Stores both the quotient and remainder in separate lists.
+
+    Input:
+    ./a.out 12 / 2
+    
+    Output:
+    INFO : Read and validate command line args successfully
+    INFO : Inserted the data successfully
+    Result: 6
+    INFO : Division operation done successfully
+
+5.insert_digit
+    - Converts numeric strings into doubly linked list representations.
+    Logic:
+    - Iterates over the characters of str1 and str2.
+    - Converts each character to an integer and inserts it into the respective linked list.
+
+6.print_result_data
+    Prints the result of the data stored in a doubly linked list.
+   Logic:
+    - Traverses the list and prints the result in reverse order (from tail to head).  
+    - Appends any leftover carry at the beginning.
