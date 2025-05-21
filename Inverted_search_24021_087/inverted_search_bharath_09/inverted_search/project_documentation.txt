@@ -1,0 +1,116 @@
+Name : Bharath dande
+Date : 02-01-2024
+Project Title: Inverted Search Database
+
+Introduction
+    The project implements an inverted search database, allowing users to create, 
+display, update, search, and save a word occurrence database. The application 
+is built using linked lists and hash tables to store and process word information 
+from multiple files efficiently.
+
+Main Functionality :
+The project has the following core features:
+1. Create Database : Read files, extract words, and store them in a structured database.
+2. Display Database : Show the stored database in a user-readable format.
+3. Update Database : Add new files to the database and update word occurrences.
+4. Search : Look for specific words and display details about their occurrences.
+5. Save Database : save the database to a file for later use.
+
+Documentation by Function
+
+File Validation : 
+- Validate files provided as command-line arguments.
+- Checks if the file exists.
+- Ensures the file is non-empty.
+- Ensures duplicate files are not allowed
+
+
+File Linked List categorization
+- Add file names to a linked list.
+- Updates file list linked list.
+- Prevents duplicate entries.
+- Dynamically allocates memory for new nodes.
+
+
+Create Database 
+- Traverse each file node in the linked list.
+- Read words and store them in a hash table based on their starting character.
+- Build the word database from files.
+- Updates hash table with words and their occurrences.
+
+
+Read Data File
+- Handles non-alphabetic characters.
+- Uses a hash function to index words.
+- Extract words from a file and populate the database.
+- Updates word list for each hash table index.
+
+
+Insert Word into Database 
+- Add a word to the appropriate word list.
+- Updated word list with the new word.
+- Dynamically allocates memory for each new word.
+- Links words to their respective hash table buckets.
+
+
+Update Word Count 
+- Increment word occurrence counts for existing words or adds new entries.
+- Updated word count and file list.
+- Checks if the word is from the same file or a new one.
+- Updates word and file counts dynamically.
+
+
+Search Functionality 
+- Finds a specific word in the database.
+- Display word occurrences across files.
+- Traverses the word list for the given hash index.
+- Displays the word, file names, and word counts.
+
+
+Display Database
+- Prints the word database in a structured format.
+- Console output of the database.
+- Shows each word, its occurrence count, and associated files.
+- Uses the hash index for categorization.
+
+
+Save Database 
+- Traverse each hash table index.
+- Write words, files, and counts to the output file.
+- creates the database to a file.
+- Saved file with database details.
+
+
+Update Database 
+- Add new files to the existing database.
+- Validate new files.
+- Add valid files to the linked list and process them.
+
+
+Utility Functions
+Hash Function 
+- Calculate hash index for a word.
+
+File Empty Check 
+- Check if a file is empty or not.
+- Input : File name.
+- Output : Status (empty, not available, or valid).
+
+Example Workflow :
+
+Run the program with valid file arguments:
+
+./a.out file1.txt file2.txt
+
+Choose an option from the menu, such as creating a database.
+
+Enter a word to search or a file name to update the database.
+
+Save the database to a file and verify its content.
+
+Exit the program.
+
+Conclusion :
+
+    This inverted search project effectively demonstrates how to process 
+and analyze text files using linked lists.
