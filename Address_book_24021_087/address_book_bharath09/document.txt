@@ -1,0 +1,107 @@
+DOCUMENTATION
+Name        : Bharath dande
+Date        :25-10-2024
+project     :Address Book
+Description :
+    In this project ,each person's contact information including name, phone no, and email id will be stored in file in structure array format.
+Concepts:
+      1.	Concepts of C programming
+      2.	Function and pointers.
+      3.	String manipulations.
+      4. Loops.
+      5.	File Handling.
+      6.	Error handling.
+        Requirements:
+             1. ADD CONTACT
+             2. SEARCH CONTACT
+             3. EDIT CONTACT
+             4. DELETE CONATACT
+             5. SAVE CONTACT
+             6. LIST CONTACT
+
+Functions used in this projects:
+Loadcintact contact:
+            In this function i take all the contacts in the file to addressBook structure using fscanf.
+            in this function i am using to strtok string function to separate the name, phone no and email id using comma .
+1.Create contact:
+           In this function i am reading name ,phone no and mail id for creating new contact.
+           After reading checking for that name ,phone no and mail id is already exists or not. If already available then i didn't copy it to new contact.
+           Input:      
+                  Name: bharath
+                  phone no:9010739987
+                  Mail Id: barathdande02@mail.com
+           output: 
+                  Contact added successfully 
+2.Search Contact:
+             In this function i am searching contact based on 1.Name and 2.Mail id
+             here iam using switch case;
+            if i enter 1  it shows name to enter ,if  name is enter ,based on that name contacts is printed  
+              input: bh
+              output: 1.bharath      9010739987       barathdande02@.com
+            if i enter 2 it shows maild id to enter , if maild is enter,based on that contacts is printed
+              input: ba
+              output: 1.bharath      9010739987       barathdande02@.com
+3.Edit contact:
+              In this function i am editing contact based on 1.Name and 2.Mail id
+              here i used strstr function.
+              if i enter 1  it shows name to enter ,if  name is enter ,based on that name contacts is printed  
+                input: ba
+                output: 1.bharath      9010739987       barathdande02@.com
+              if option is 1 and name entered is bharath
+              Then it shows which part of the contact to edit like name, phone no and mail id.
+              if you enter 1. then compiler ask for new name to edit contact.
+              after entering the name , it checks if that name is already exists or not, if not that name is edited success fully.
+              like this based on name on name also contact is edited.
+Enter the option:
+1. NAME
+2. EMAIL
+1
+ENTER THE NAME: karthik
+1. NAME: karthik   PHONE NO: 8521479632        EMAIL: karthik09@gmail.com
+ENTER THE SERIAL NUMBER TO EDIT THE CONTACT:1 
+1. NAME
+2. PHONE NUMBER
+3. EMAIL
+1
+ENTER THE NEW NAME: siddhu
+NAME UPDATED SUCCESSFULLY
+
+Enter the option:
+1. NAME
+2. EMAIL
+1
+ENTER THE EMAIL ID: kar
+1. NAME: karthik   PHONE NO: 8521479632        EMAIL: karthik09@gmail.com
+ENTER THE SERIAL NUMBER TO EDIT THE CONTACT:1 
+1. NAME
+2. PHONE NUMBER
+3. EMAIL
+2
+ENTER THE NEW PHONE NO: 8521479632
+PHONE NO UPDATED SUCCESSFULLY
+
+5.Delete contact:
+In this function i am deleting contact based on 1.Name and  2.phone no 3.Mail id
+SELECT THE NUMBER TO DELETE FROM CONTACT
+ENTER THE OPTION:
+1. NAME
+2. PHONE
+3. EMAIL
+ENTER YOUR NUMBER:1
+ENTER THE NAME TO DELETE FROM ADDRESSBOOK: karthik
+CONTACTS:
+INDEX 1: NAME: karthik, Phone: 8521479632, EMAIL: karthik09@gmail.com
+ENTER THE INDEX NUMBER TO  DELETE FROM ADDRESSBOOK: 1
+CONTACT HAVE BEEN DELETED SUCCESSFULLY.
+
+5.List contact:
+ENTER YOUR CHOICE:5
+CONTACT LIST
+bharath  9010739987     barathdande@gmail.com
+suddhu   0123456789     siddhu09@gmail.com
+siva     8521476391     siva09@gmail.com
+6.Save and Exit:
+    If i enter choice = 6
+    compiler comes to this function and save all the contacts. 
+    In this function saving contacts from addressbook structure to file.csv
+    here for saving contacts i used fprintf and fclose.
